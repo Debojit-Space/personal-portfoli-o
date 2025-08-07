@@ -18,7 +18,7 @@ const ContentSections = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Market Analysis</CardTitle>
               </CardHeader>
@@ -30,7 +30,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Investment Strategies</CardTitle>
               </CardHeader>
@@ -42,7 +42,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Portfolio Insights</CardTitle>
               </CardHeader>
@@ -72,13 +72,13 @@ const ContentSections = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">Science & Space</h3>
               <div className="space-y-4">
-                <Card>
+                <Card variant="neumorphic">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Quantum Computing Breakthroughs</h4>
                     <p className="text-muted-foreground">Latest developments in quantum computing and their implications for the future.</p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card variant="neumorphic">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Space Technology</h4>
                     <p className="text-muted-foreground">Covering ISRO missions, SpaceX innovations, and the new space economy.</p>
@@ -90,7 +90,7 @@ const ContentSections = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">AI & Computer Science</h3>
               <div className="space-y-4">
-                <Card>
+                <Card variant="neumorphic">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Generative AI Projects</h4>
                     <p className="text-muted-foreground mb-4">
@@ -108,7 +108,7 @@ const ContentSections = () => {
                     </div>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card variant="neumorphic">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Resume & Portfolio</h4>
                     <p className="text-muted-foreground mb-4">
@@ -138,7 +138,7 @@ const ContentSections = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Meditation & Mindfulness</CardTitle>
               </CardHeader>
@@ -150,7 +150,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Ancient Wisdom</CardTitle>
               </CardHeader>
@@ -162,7 +162,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Personal Growth</CardTitle>
               </CardHeader>
@@ -174,7 +174,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-lg">Spiritual Practices</CardTitle>
               </CardHeader>
