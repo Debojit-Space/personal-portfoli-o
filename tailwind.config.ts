@@ -52,6 +52,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'hero-gradient': {
+					start: 'hsl(var(--hero-gradient-start))',
+					end: 'hsl(var(--hero-gradient-end))'
+				},
+				'section-dark': {
+					DEFAULT: 'hsl(var(--section-dark))',
+					foreground: 'hsl(var(--section-dark-foreground))'
+				},
+				'feature-icon': 'hsl(var(--feature-icon))',
+				'nav-text': {
+					DEFAULT: 'hsl(var(--nav-text))',
+					hover: 'hsl(var(--nav-text-hover))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
