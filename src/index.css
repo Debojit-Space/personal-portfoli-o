@@ -39,7 +39,7 @@ All colors MUST be HSL.
     /* Personal website theme colors */
     --hero-gradient-start: 220 15% 95%;
     --hero-gradient-end: 220 20% 98%;
-    --section-dark: 222.2 47.4% 11.2%;
+    --section-dark: 0 0% 0%;
     --section-dark-foreground: 210 40% 98%;
     --feature-icon: 220 30% 88%;
     --nav-text: 215.4 16.3% 46.9%;
