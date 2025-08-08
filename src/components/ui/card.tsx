@@ -11,7 +11,7 @@ const cardVariants = cva(
         neumorphic:
           "bg-[#eef0f4] text-gray-900 shadow-[8px_8px_24px_#cbcfd6,-8px_-8px_24px_#ffffff] border-none",
         neumorphicDark:
-          "bg-[#222328] text-white shadow-[8px_8px_24px_#191a1c,-8px_-8px_24px_#303135] border-none",
+          "bg-black text-white shadow-[8px_8px_24px_#000000,-8px_-8px_24px_#1a1a1a] border-none",
       }
     },
     defaultVariants: {
