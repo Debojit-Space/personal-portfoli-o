@@ -2,8 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, Code, Lightbulb, ExternalLink, FileText } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ContentSections = () => {
+  const navigate = useNavigate();
+
+  const handleViewProjects = () => {
+    navigate('/projects');
+  };
+
   return (
     <div className="space-y-32 py-20">
       {/* Finance Section */}
@@ -24,7 +31,7 @@ const ContentSections = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Weekly deep dives into Indian market trends, sector analysis, and stock recommendations.
+                  Deep dives into Indian market trends, sector analysis, and business insights.
                 </p>
                 <Badge variant="secondary">Research</Badge>
               </CardContent>
@@ -74,8 +81,8 @@ const ContentSections = () => {
               <div className="space-y-4">
                 <Card variant="neumorphic">
                   <CardContent className="p-6">
-                    <h4 className="font-semibold mb-2">Quantum Computing Breakthroughs</h4>
-                    <p className="text-muted-foreground">Latest developments in quantum computing and their implications for the future.</p>
+                    <h4 className="font-semibold mb-2">Quantum Physics Breakthroughs</h4>
+                    <p className="text-muted-foreground">Latest developments in quantum physics and their implications for the future.</p>
                   </CardContent>
                 </Card>
                 <Card variant="neumorphic">
@@ -94,16 +101,17 @@ const ContentSections = () => {
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Generative AI Projects</h4>
                     <p className="text-muted-foreground mb-4">
-                      Hands-on projects exploring LLMs, computer vision, and AI applications.
+                      Hands-on projects exploring LLMs and AI applications.
                     </p>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline" className="text-xs">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="text-xs"
+                        onClick={handleViewProjects}
+                      >
                         <ExternalLink className="w-3 h-3 mr-1" />
-                        Live Demo
-                      </Button>
-                      <Button size="sm" variant="outline" className="text-xs">
-                        <Code className="w-3 h-3 mr-1" />
-                        GitHub
+                        View Projects
                       </Button>
                     </div>
                   </CardContent>
@@ -112,7 +120,7 @@ const ContentSections = () => {
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Resume & Portfolio</h4>
                     <p className="text-muted-foreground mb-4">
-                      Detailed technical background, project showcase, and professional experience.
+                      Detailed technical background and professional experience.
                     </p>
                     <Button size="sm" variant="outline" className="text-xs">
                       <FileText className="w-3 h-3 mr-1" />

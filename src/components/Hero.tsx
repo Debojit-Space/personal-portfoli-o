@@ -42,7 +42,7 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-6">
             <a 
-              href="https://twitter.com" 
+              href="https://x.com/dkbanik" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-accent rounded-full transition-colors duration-200 shadow-sm"
@@ -50,7 +50,7 @@ const Hero = () => {
               <Twitter className="w-6 h-6 text-foreground" />
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://instagram.com/dkbanik" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-accent rounded-full transition-colors duration-200 shadow-sm"
@@ -58,7 +58,7 @@ const Hero = () => {
               <Instagram className="w-6 h-6 text-foreground" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://linkedin.com/in/dkbanik" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-accent rounded-full transition-colors duration-200 shadow-sm"
@@ -66,7 +66,7 @@ const Hero = () => {
               <Linkedin className="w-6 h-6 text-foreground" />
             </a>
             <a 
-              href="https://github.com" 
+              href="https://github.com/dkbanik" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-accent rounded-full transition-colors duration-200 shadow-sm"

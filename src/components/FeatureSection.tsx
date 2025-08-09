@@ -25,7 +25,7 @@ const FeatureSection = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card variant="neumorphicDark" key={index} className="bg-black border-feature-icon/20 p-8 text-center">
+            <Card variant="neumorphicDark" key={index} className="bg-transparent border-feature-icon/20 p-8 text-center">
               <div className="w-16 h-16 bg-feature-icon rounded-full flex items-center justify-center mx-auto mb-6">
                 <feature.icon className="w-8 h-8 text-section-dark" />
               </div>
