@@ -102,7 +102,7 @@ const ContentSections = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">AI & Computer Science</h3>
               <div className="space-y-4">
-                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Generative AI Projects')} role="link" aria-label="Open Generative AI Projects">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleViewProjects()} role="link" aria-label="Open Generative AI Projects">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Generative AI Projects</h4>
                     <p className="text-muted-foreground mb-4">
