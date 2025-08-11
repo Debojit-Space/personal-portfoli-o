@@ -22,6 +22,7 @@ const BlogCategory = () => {
   const { slug = "" } = useParams();
   const navigate = useNavigate();
   const title = toTitle(slug);
+  const isMarket = slug === "market-analysis";
 
   // Mock articles per category
   const articles = useMemo<Article[]>(() => {
@@ -92,7 +93,7 @@ const BlogCategory = () => {
       <main className="container mx-auto px-6 pb-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Articles list */}
         <section className="lg:col-span-2 space-y-4">
-          {articles.map((post) => (
+          {articles.map((post, idx) => (
             <article key={post.id}>
               <Card className="group bg-card shadow-lg border-white/15 hover:border-white/30 transition-all duration-300">
                 <CardHeader>
@@ -111,7 +112,14 @@ const BlogCategory = () => {
                   <p className="text-muted-foreground mb-4">
                     {post.excerpt}
                   </p>
-                  <Button size="sm" variant="outline" className="bg-white/5 border-white/15">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-white/5 border-white/15"
+                    onClick={() => (isMarket ? navigate(`/${slug}/post${idx + 1}`) : undefined)}
+                    disabled={!isMarket}
+                    aria-label={`Read more about ${post.title}`}
+                  >
                     Read more
                   </Button>
                 </CardContent>
