@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import { slugify } from "@/lib/slug";
 
 interface Project {
   id: string;
@@ -69,12 +70,7 @@ const Projects = () => {
   ];
 
   const handleProjectClick = (project: Project) => {
-    if (project.route === "/") {
-      navigate("/");
-    } else {
-      // For other projects, you can implement actual navigation or show project details
-      console.log(`Navigating to ${project.title}`);
-    }
+    navigate(`/${slugify(project.title)}`);
   };
 
   return (

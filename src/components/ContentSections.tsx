@@ -3,12 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, Code, Lightbulb, ExternalLink, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { slugify } from "@/lib/slug";
 
 const ContentSections = () => {
   const navigate = useNavigate();
 
   const handleViewProjects = () => {
     navigate('/projects');
+  };
+
+  const handleCardClick = (name: string) => {
+    navigate(`/${slugify(name)}`);
   };
 
   return (
@@ -25,7 +30,7 @@ const ContentSections = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Market Analysis')} role="link" aria-label="Open Market Analysis">
               <CardHeader>
                 <CardTitle className="text-lg">Market Analysis</CardTitle>
               </CardHeader>
@@ -37,7 +42,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Investment Strategies')} role="link" aria-label="Open Investment Strategies">
               <CardHeader>
                 <CardTitle className="text-lg">Investment Strategies</CardTitle>
               </CardHeader>
@@ -49,7 +54,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Portfolio Insights')} role="link" aria-label="Open Portfolio Insights">
               <CardHeader>
                 <CardTitle className="text-lg">Portfolio Insights</CardTitle>
               </CardHeader>
@@ -79,13 +84,13 @@ const ContentSections = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">Science & Space</h3>
               <div className="space-y-4">
-                <Card variant="neumorphic">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Quantum Physics Breakthroughs')} role="link" aria-label="Open Quantum Physics Breakthroughs">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Quantum Physics Breakthroughs</h4>
                     <p className="text-muted-foreground">Latest developments in quantum physics and their implications for the future.</p>
                   </CardContent>
                 </Card>
-                <Card variant="neumorphic">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Space Technology')} role="link" aria-label="Open Space Technology">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Space Technology</h4>
                     <p className="text-muted-foreground">Covering ISRO missions, SpaceX innovations, and the new space economy.</p>
@@ -97,7 +102,7 @@ const ContentSections = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">AI & Computer Science</h3>
               <div className="space-y-4">
-                <Card variant="neumorphic">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Generative AI Projects')} role="link" aria-label="Open Generative AI Projects">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Generative AI Projects</h4>
                     <p className="text-muted-foreground mb-4">
@@ -108,7 +113,7 @@ const ContentSections = () => {
                         size="sm" 
                         variant="outline" 
                         className="text-xs"
-                        onClick={handleViewProjects}
+                        onClick={(e) => { e.stopPropagation(); handleViewProjects(); }}
                       >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         View Projects
@@ -116,7 +121,7 @@ const ContentSections = () => {
                     </div>
                   </CardContent>
                 </Card>
-                <Card variant="neumorphic">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Resume & Portfolio')} role="link" aria-label="Open Resume & Portfolio">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Resume & Portfolio</h4>
                     <p className="text-muted-foreground mb-4">
@@ -146,7 +151,7 @@ const ContentSections = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Meditation & Mindfulness')} role="link" aria-label="Open Meditation & Mindfulness">
               <CardHeader>
                 <CardTitle className="text-lg">Meditation & Mindfulness</CardTitle>
               </CardHeader>
@@ -158,7 +163,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Ancient Wisdom')} role="link" aria-label="Open Ancient Wisdom">
               <CardHeader>
                 <CardTitle className="text-lg">Ancient Wisdom</CardTitle>
               </CardHeader>
@@ -170,7 +175,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Personal Growth')} role="link" aria-label="Open Personal Growth">
               <CardHeader>
                 <CardTitle className="text-lg">Personal Growth</CardTitle>
               </CardHeader>
@@ -182,7 +187,7 @@ const ContentSections = () => {
               </CardContent>
             </Card>
             
-            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300">
+            <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Spiritual Practices')} role="link" aria-label="Open Spiritual Practices">
               <CardHeader>
                 <CardTitle className="text-lg">Spiritual Practices</CardTitle>
               </CardHeader>
