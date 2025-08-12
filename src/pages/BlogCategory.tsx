@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,41 +11,71 @@ const toTitle = (slug: string) =>
     .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
     .join(" ");
 
+// Load all markdown files as raw text
+const mdFiles = import.meta.glob("/src/content/**/*.md", { query: "?raw", import: 'default' });
+
 interface Article {
   id: string;
   title: string;
   excerpt: string;
-  date: string; // ISO
+  date: string;
+  path: string;
+}
+function stripMarkdown(md: string) {
+  return md
+    .replace(/!\[.*?\]\(.*?\)/g, "")      // images
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1") // links
+    .replace(/[*_~`>#-]+/g, "")           // formatting chars
+    .replace(/\s+/g, " ")                 // collapse whitespace
+    .trim();
 }
 
 const BlogCategory = () => {
   const { slug = "" } = useParams();
   const navigate = useNavigate();
   const title = toTitle(slug);
-  const isMarket = slug === "market-analysis";
 
-  // Mock articles per category
-  const articles = useMemo<Article[]>(() => {
-    const base = title || "Category";
-    const now = new Date();
-    return Array.from({ length: 7 }).map((_, i) => {
-      const d = new Date(now);
-      d.setDate(now.getDate() - i * 5);
-      return {
-        id: `${slug}-${i + 1}`,
-        title: `${base} Insight ${i + 1}`,
-        excerpt:
-          "An in-depth exploration covering key takeaways, practical frameworks, and real-world applications.",
-        date: d.toISOString(),
-      };
-    });
-  }, [slug, title]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
-  // Basic SEO handling
+  useEffect(() => {
+    
+    const loadArticles = async () => {
+      const prefix = `/src/content/${slug}/`;
+      const entries = Object.entries(mdFiles)
+        .filter(([path]) => path.startsWith(prefix));
+
+      const results: Article[] = [];
+
+      for (const [path, loader] of entries) {
+        const raw = await (loader as () => Promise<string>)();
+        const lines = raw.split("\n").map(l => l.trim()).filter(Boolean);
+        
+        const firstLine = lines[0] || "";
+        const matchTitle = firstLine.startsWith("#") ? firstLine.replace(/^#\s*/, "") : firstLine;
+        const excerpt = stripMarkdown(lines.slice(1, 3).join(" "));
+
+        results.push({
+          id: path,
+          title: matchTitle || "Untitled",
+          excerpt: excerpt || "",
+          date: new Date().toISOString(), // replace with frontmatter date if available
+          path
+        });
+      }
+
+      // Sort newest first (optional)
+      results.sort((a, b) => b.date.localeCompare(a.date));
+
+      setArticles(results);
+    };
+
+    loadArticles();
+  }, [slug]);
+
+  // SEO updates
   useEffect(() => {
     const pageTitle = `${title} – Blogs`;
     document.title = pageTitle;
-
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
       if (!el) {
@@ -55,21 +85,7 @@ const BlogCategory = () => {
       }
       el.setAttribute("content", content);
     };
-
-    setMeta(
-      "description",
-      `${title} blog articles, timelines, and insights. Explore the latest posts in ${title}.`
-    );
-
-    let link: HTMLLinkElement | null = document.querySelector(
-      'link[rel="canonical"]'
-    );
-    if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", "canonical");
-      document.head.appendChild(link);
-    }
-    link.setAttribute("href", window.location.href);
+    setMeta("description", `${title} blog articles, timelines, and insights.`);
   }, [title]);
 
   return (
@@ -86,14 +102,14 @@ const BlogCategory = () => {
         </Button>
         <h1 className="text-4xl font-bold text-foreground mb-2">{title}</h1>
         <p className="text-muted-foreground max-w-2xl">
-          Curated articles and insights under {title}. Browse posts on the left and see the timeline on the right.
+          Curated articles and insights under {title}.
         </p>
       </header>
 
       <main className="container mx-auto px-6 pb-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Articles list */}
         <section className="lg:col-span-2 space-y-4">
-          {articles.map((post, idx) => (
+          {articles.map((post) => (
             <article key={post.id}>
               <Card className="group bg-card shadow-lg border-white/15 hover:border-white/30 transition-all duration-300">
                 <CardHeader>
@@ -109,16 +125,15 @@ const BlogCategory = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    {post.excerpt}
-                  </p>
+                  <p className="text-muted-foreground mb-4">{post.excerpt}</p>
                   <Button
                     size="sm"
                     variant="outline"
                     className="bg-white/5 border-white/15"
-                    onClick={() => (isMarket ? navigate(`/${slug}/post${idx + 1}`) : undefined)}
-                    disabled={!isMarket}
-                    aria-label={`Read more about ${post.title}`}
+                    onClick={() => {
+                      const fileName = post.path.split("/").pop()?.replace(/\.md$/, "");
+                      navigate(`/${slug}/${fileName}`);
+                    }}
                   >
                     Read more
                   </Button>
@@ -137,9 +152,9 @@ const BlogCategory = () => {
             </CardHeader>
             <CardContent>
               <ol className="relative border-l border-white/15 ml-3">
-                {articles.map((post, idx) => (
+                {articles.map((post) => (
                   <li key={post.id} className="mb-8 ml-4">
-                    <div className="absolute -left-1.5 mt-1.5 w-3 h-3 rounded-full bg-primary" aria-hidden />
+                    <div className="absolute -left-1.5 mt-1.5 w-3 h-3 rounded-full bg-primary" />
                     <time className="block text-xs text-muted-foreground mb-1">
                       {new Date(post.date).toLocaleDateString(undefined, {
                         year: "numeric",
