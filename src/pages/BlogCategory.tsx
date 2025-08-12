@@ -38,7 +38,7 @@ const BlogCategory = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    
+
     const loadArticles = async () => {
       const prefix = `/src/content/${slug}/`;
       const entries = Object.entries(mdFiles)
@@ -49,7 +49,7 @@ const BlogCategory = () => {
       for (const [path, loader] of entries) {
         const raw = await (loader as () => Promise<string>)();
         const lines = raw.split("\n").map(l => l.trim()).filter(Boolean);
-        
+
         const firstLine = lines[0] || "";
         const matchTitle = firstLine.startsWith("#") ? firstLine.replace(/^#\s*/, "") : firstLine;
         const excerpt = stripMarkdown(lines.slice(1, 3).join(" "));

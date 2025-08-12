@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { BarChart3, Code, Lightbulb, ExternalLink, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { slugify } from "@/lib/slug";
+import resumePDF from "@/content/resume/Debojit_June25.pdf";
 
 const ContentSections = () => {
   const navigate = useNavigate();
@@ -15,6 +16,16 @@ const ContentSections = () => {
   const handleCardClick = (name: string) => {
     navigate(`/${slugify(name)}`);
   };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = resumePDF;
+    link.download = "Debojit-Banik-Resume.pdf"; // Change to your filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
 
   return (
     <div className="space-y-32 py-20">
@@ -28,7 +39,7 @@ const ContentSections = () => {
               Navigating the Indian stock market with data-driven insights and proven investment strategies
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Market Analysis')} role="link" aria-label="Open Market Analysis">
               <CardHeader>
@@ -41,7 +52,7 @@ const ContentSections = () => {
                 <Badge variant="secondary">Research</Badge>
               </CardContent>
             </Card>
-            
+
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Investment Strategies')} role="link" aria-label="Open Investment Strategies">
               <CardHeader>
                 <CardTitle className="text-lg">Investment Strategies</CardTitle>
@@ -53,7 +64,7 @@ const ContentSections = () => {
                 <Badge variant="secondary">Strategy</Badge>
               </CardContent>
             </Card>
-            
+
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Portfolio Insights')} role="link" aria-label="Open Portfolio Insights">
               <CardHeader>
                 <CardTitle className="text-lg">Portfolio Insights</CardTitle>
@@ -79,7 +90,7 @@ const ContentSections = () => {
               Exploring the frontiers of AI, GenAI, and cutting-edge computer science
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             <div>
               <h3 className="text-2xl font-semibold mb-6">Science & Space</h3>
@@ -98,7 +109,7 @@ const ContentSections = () => {
                 </Card>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-2xl font-semibold mb-6">AI & Computer Science</h3>
               <div className="space-y-4">
@@ -109,9 +120,9 @@ const ContentSections = () => {
                       Hands-on projects exploring LLMs and AI applications.
                     </p>
                     <div className="flex gap-2">
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
+                      <Button
+                        size="sm"
+                        variant="outline"
                         className="text-xs"
                         onClick={(e) => { e.stopPropagation(); handleViewProjects(); }}
                       >
@@ -121,15 +132,23 @@ const ContentSections = () => {
                     </div>
                   </CardContent>
                 </Card>
-                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Resume & Portfolio')} role="link" aria-label="Open Resume & Portfolio">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={handleDownloadResume} role="link" aria-label="Download Resume">
                   <CardContent className="p-6">
-                    <h4 className="font-semibold mb-2">Resume & Portfolio</h4>
+                    <h4 className="font-semibold mb-2">Resume</h4>
                     <p className="text-muted-foreground mb-4">
                       Detailed technical background and professional experience.
                     </p>
-                    <Button size="sm" variant="outline" className="text-xs">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="text-xs"
+                      onClick={(e) => {
+                        e.stopPropagation(); // prevent card click
+                        handleDownloadResume();
+                      }}
+                    >
                       <FileText className="w-3 h-3 mr-1" />
-                      View Resume
+                      Download Resume
                     </Button>
                   </CardContent>
                 </Card>
@@ -149,7 +168,7 @@ const ContentSections = () => {
               Exploring inner growth, mindfulness, and the timeless wisdom that guides our journey
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Meditation & Mindfulness')} role="link" aria-label="Open Meditation & Mindfulness">
               <CardHeader>
@@ -162,7 +181,7 @@ const ContentSections = () => {
                 <Badge variant="secondary">Practice</Badge>
               </CardContent>
             </Card>
-            
+
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Ancient Wisdom')} role="link" aria-label="Open Ancient Wisdom">
               <CardHeader>
                 <CardTitle className="text-lg">Ancient Wisdom</CardTitle>
@@ -174,7 +193,7 @@ const ContentSections = () => {
                 <Badge variant="secondary">Philosophy</Badge>
               </CardContent>
             </Card>
-            
+
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Personal Growth')} role="link" aria-label="Open Personal Growth">
               <CardHeader>
                 <CardTitle className="text-lg">Personal Growth</CardTitle>
@@ -186,7 +205,7 @@ const ContentSections = () => {
                 <Badge variant="secondary">Growth</Badge>
               </CardContent>
             </Card>
-            
+
             <Card variant="neumorphic" className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleCardClick('Spiritual Practices')} role="link" aria-label="Open Spiritual Practices">
               <CardHeader>
                 <CardTitle className="text-lg">Spiritual Practices</CardTitle>

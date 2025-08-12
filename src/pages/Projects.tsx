@@ -20,58 +20,23 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      id: "portfolio",
-      title: "Personal Portfolio",
-      description: "A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features smooth animations, dark mode, and a clean design.",
-      route: "/",
-      githubUrl: "https://github.com/yourusername/personal-portfolio",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"]
-    },
-    {
-      id: "ecommerce",
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce application with user authentication, product management, shopping cart, and payment integration.",
-      route: "/ecommerce",
-      githubUrl: "https://github.com/yourusername/ecommerce-platform",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"]
-    },
-    {
-      id: "task-manager",
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, team collaboration, and progress tracking.",
-      route: "/task-manager",
-      githubUrl: "https://github.com/yourusername/task-manager",
-      technologies: ["React", "Firebase", "TypeScript", "Tailwind CSS"]
-    },
-    {
-      id: "weather-app",
-      title: "Weather Dashboard",
-      description: "A weather application that provides current conditions, forecasts, and interactive maps with location-based services.",
-      route: "/weather-app",
-      githubUrl: "https://github.com/yourusername/weather-dashboard",
-      technologies: ["React", "OpenWeather API", "Chart.js", "CSS Modules"]
-    },
-    {
-      id: "blog-platform",
-      title: "Blog Platform",
-      description: "A content management system for blogs with rich text editing, user management, and SEO optimization features.",
-      route: "/blog-platform",
-      githubUrl: "https://github.com/yourusername/blog-platform",
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"]
-    },
-    {
-      id: "chat-app",
-      title: "Real-time Chat App",
-      description: "A real-time messaging application with user authentication, group chats, and file sharing capabilities.",
-      route: "/chat-app",
-      githubUrl: "https://github.com/yourusername/chat-app",
-      technologies: ["React", "Socket.io", "Express", "MongoDB"]
+      id: "project1",
+      title: "Screener Query Assistant",
+      description: "This chatbot assistant transforms natural language queries into precise Screener queries, enabling users to easily analyze financial data without needing to master complex syntax.",
+      route: "https://screener-spark.lovable.app/",
+      githubUrl: "https://github.com/Debojit-Space/screener-spark",
+      technologies: ["n8n", "lovable", "openai", "pinecone", "llama index"]
     }
   ];
 
   const handleProjectClick = (project: Project) => {
-    navigate(`/${slugify(project.title)}`);
+    window.open(project.route, "_blank", "noopener,noreferrer");
   };
+  
+
+  /*const handleProjectClick = (project: Project) => {
+    navigate(project.route);
+  };*/
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/90 to-background/80">
@@ -87,19 +52,19 @@ const Projects = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Portfolio
           </Button>
-          
+
           <h1 className="text-4xl font-bold text-foreground mb-4">My Projects</h1>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Here's a collection of projects I've built, showcasing my skills in web development, 
-            full-stack applications, and modern technologies.
+            Here's a collection of projects I have built.
+
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <Card 
-              key={project.id} 
+            <Card
+              key={project.id}
               className="group hover:shadow-2xl transition-all duration-500 cursor-pointer border-white/15 hover:border-white/35 bg-white/3 hover:bg-white/8 backdrop-blur-md shadow-lg hover:shadow-white/10"
               onClick={() => handleProjectClick(project)}
             >
@@ -109,7 +74,7 @@ const Projects = () => {
                   {project.description}
                 </CardDescription>
               </CardHeader>
-              
+
               <CardContent className="backdrop-blur-sm">
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -139,7 +104,7 @@ const Projects = () => {
                       Code
                     </Button>
                   )}
-                  
+
                   {project.liveUrl && (
                     <Button
                       variant="outline"
@@ -154,7 +119,7 @@ const Projects = () => {
                       Live
                     </Button>
                   )}
-                  
+
                   {!project.githubUrl && !project.liveUrl && (
                     <Button
                       variant="outline"
