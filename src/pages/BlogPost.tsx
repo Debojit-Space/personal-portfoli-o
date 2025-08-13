@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -31,9 +32,11 @@ const BlogPost = () => {
           if (!cancelled) setContent(raw);
         } else {
           if (!cancelled)
-            setContent(`# ${toTitle(post)}\n\n> Content coming soon. Add a file at ${filePath} to populate this page.`);
+            setContent(
+              `# ${toTitle(post)}\n\n> Content coming soon. Add a file at ${filePath} to populate this page.`
+            );
         }
-      } catch (e) {
+      } catch {
         if (!cancelled)
           setContent(`# ${toTitle(post)}\n\nThere was an error loading this article.`);
       } finally {
@@ -48,7 +51,8 @@ const BlogPost = () => {
 
   // Extract first H1 as title for SEO when available
   const derivedTitle = useMemo(() => {
-    const match = content.match(/^#\s+(.+)$/m);
+    const mdString = typeof content === "string" ? content : "";
+    const match = mdString.match(/^#\s+(.+)$/m);
     const h1 = match?.[1]?.trim();
     const humanCat = toTitle(slug);
     return h1 ? `${h1} – ${humanCat}` : `${toTitle(post)} – ${humanCat}`;
@@ -93,28 +97,48 @@ const BlogPost = () => {
         >
           Back
         </Button>
-        {/* The first heading in markdown will be the H1 for accessibility */}
       </header>
 
-      <main className="container mx-auto px-6 pb-16 grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <article className="prose prose-invert max-w-none lg:col-span-2">
-          {!loaded ? (
-            <p className="text-muted-foreground">Loading article…</p>
-          ) : (
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-          )}
-        </article>
-
-        <aside className="lg:col-span-1">
-          <div className="rounded-lg border border-white/15 bg-card p-5">
-            <h2 className="text-lg font-semibold mb-2">About this article</h2>
-            <p className="text-sm text-muted-foreground">
-              This page renders markdown from <code className="font-mono">{filePath}</code>.
-              To add or edit content, create or modify that file. Use standard Markdown
-              (GFM supported for tables, lists, and task items).
-            </p>
-          </div>
-        </aside>
+      {/* Single column + centered card */}
+      <main className="container mx-auto px-6 pb-16">
+        <section className="w-full max-w-3xl mx-auto">
+          <Card className="bg-card border-white/15 shadow-lg">
+            <CardHeader>
+              <CardTitle className="text-xl font-bold text-foreground">
+                {derivedTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {!loaded ? (
+                <p className="text-muted-foreground">Loading article…</p>
+              ) : (
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  // Force proper list styling + keep the nice prose defaults
+                  components={{
+                    ul: ({node, ...props}) => (
+                      <ul className="list-disc pl-6 my-4 space-y-2" {...props} />
+                    ),
+                    ol: ({node, ...props}) => (
+                      <ol className="list-decimal pl-6 my-4 space-y-2" {...props} />
+                    ),
+                    li: ({node, ...props}) => <li className="leading-relaxed" {...props} />,
+                  }}
+                  className="prose prose-invert max-w-none
+                    prose-headings:mb-4
+                    prose-p:leading-relaxed
+                    prose-a:text-primary hover:prose-a:underline
+                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic
+                    prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                    prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg overflow-x-auto
+                    prose-table:border prose-table:border-muted prose-th:bg-muted/30 prose-th:p-2 prose-td:p-2"
+                >
+                  {content}
+                </ReactMarkdown>
+              )}
+            </CardContent>
+          </Card>
+        </section>
       </main>
     </div>
   );
