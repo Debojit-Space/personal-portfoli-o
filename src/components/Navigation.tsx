@@ -30,6 +30,10 @@ const Navigation = () => {
     scrollToSection('contact');
   };
 
+  const handleProfileClick = () => {
+    scrollToSection('profile');
+  }
+
   const handleHomeClick = () => {
     navigate('/');
     setIsMobileMenuOpen(false);
@@ -42,13 +46,13 @@ const Navigation = () => {
           <div className="flex items-center space-x-2">
             <div
               className="w-8 h-8 bg-primary/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-primary/25 cursor-pointer hover:bg-primary/90 transition-colors duration-200"
-              onClick={handleHomeClick}
+              onClick={handleProfileClick}
             >
               <span className="text-primary-foreground text-sm font-bold">D</span>
             </div>
             <span
               className="font-semibold text-foreground cursor-pointer hover:text-primary transition-colors duration-200"
-              onClick={handleHomeClick}
+              onClick={handleProfileClick}
             >
               Debojit
             </span>
@@ -143,15 +147,15 @@ const Navigation = () => {
               >
                 Spirituality
               </button>
-              {!isOnProjectsPage && (
-                <Button
-                  onClick={handleProjectsClick}
-                  variant="outline"
-                  className="text-nav-text hover:text-nav-text-hover border-white/25 hover:border-white/40 bg-white/15 hover:bg-white/25 backdrop-blur-sm transition-all duration-300 w-full justify-start"
-                >
-                  View My Projects
-                </Button>
-              )}
+
+              <Button
+                onClick={handleProjectsClick}
+                variant="outline"
+                className="text-nav-text hover:text-nav-text-hover border-white/25 hover:border-white/40 bg-white/15 hover:bg-white/25 backdrop-blur-sm transition-all duration-300 w-full justify-start"
+              >
+                View My Projects
+              </Button>
+
               <Button
                 onClick={handleConnectClick}
                 className="bg-primary/80 text-primary-foreground hover:bg-primary/90 backdrop-blur-sm px-6 py-2 rounded-full w-full shadow-lg shadow-primary/25 transition-all duration-300"

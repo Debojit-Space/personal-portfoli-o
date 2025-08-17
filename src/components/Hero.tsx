@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-hero-gradient-start to-hero-gradient-end flex items-center justify-center px-6">
+    <section id='profile' className="min-h-screen bg-gradient-to-br from-hero-gradient-start to-hero-gradient-end flex items-center justify-center px-6">
       <div className="container mx-auto text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">

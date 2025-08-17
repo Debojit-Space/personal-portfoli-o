@@ -4,7 +4,7 @@ After reviewing some key players like Cosmic CRF, Jupiter Wagons, and Texmaco Ra
 
 **Central Theme: Indian Rail Industry \- Key Commonalities (FY26 Outlook)**
 
-* **I. Core Business Focus & Product Diversification**
+**I. Core Business Focus & Product Diversification**
 
   * **Freight Wagons (Freight Cars)**:  
     * All companies are **major manufacturers of railway wagons**.  
@@ -28,8 +28,9 @@ After reviewing some key players like Cosmic CRF, Jupiter Wagons, and Texmaco Ra
       * Titagarh Rail Systems has a **propulsion division (traction motors)** and is developing EMU/MEMU propulsion systems.  
     * **Safety and Signaling Systems**: Titagarh Rail Systems has launched a new SSS vertical.  
     * **Shipbuilding/Maritime Systems**: Titagarh Rail Systems has re-embarked on this venture.  
-    * **Heavy Fabrication/Infrastructure**: Cosmic CRF is involved in **heavy fabrication for DFC** and road over bridges. Texmaco has an "Infra \- Electrical" division (Bright Power).  
-* **II. Driving Forces: Strong Government Support & Market Potential**
+    * **Heavy Fabrication/Infrastructure**: Cosmic CRF is involved in **heavy fabrication for DFC** and road over bridges. Texmaco has an "Infra \- Electrical" division (Bright Power). 
+
+**II. Driving Forces: Strong Government Support & Market Potential**
 
   * **Substantial Public Investment**:  
     * The Union Budget 2025-26 maintains a **capital outlay of ₹2.5 lakh crore** for Indian Railways, a significant increase from previous years.  
@@ -39,7 +40,8 @@ After reviewing some key players like Cosmic CRF, Jupiter Wagons, and Texmaco Ra
   * **High Demand for Rolling Stock**:  
     * Approximately **1.5 lakh (150,000) wagons are expected to be delivered in the next three to four years**, representing a market opportunity of **₹35,000-₹40,000 crore**  
     * Plans for **400 Vande Bharat trains** (₹50,000-₹60,000 crore opportunity) and expansion of Metro networks (₹15,800 crore opportunity for coaches)  
-* **III. Shared Challenges & Mitigations**
+
+**III. Shared Challenges & Mitigations**
 
   * **Wheelset Supply Shortage**:  
     * All companies have faced or are currently facing **shortages of wheelsets**, impacting wagon production  
@@ -47,7 +49,8 @@ After reviewing some key players like Cosmic CRF, Jupiter Wagons, and Texmaco Ra
   * **Raw Material Price Volatility**:  
     * The industry has experienced a **drop in raw material prices**, impacting revenue growth despite volume increases.  
     * There's a shift in blend from stainless steel to mild steel, influenced by order types.  
-* **IV. Strategic Responses & Growth Levers**
+
+**IV. Strategic Responses & Growth Levers**
 
   * **Backward Integration**:  
     * A common strategy to **control costs, ensure quality, and reduce reliance on external suppliers**  
