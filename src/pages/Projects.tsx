@@ -21,6 +21,14 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: "project1",
+      title: "Prompt Craft",
+      description: "A simple game to help one learn about prompting by asking AI to generate given target output. ",
+      route: "https://promptcraft-1th.pages.dev/",
+      githubUrl: "https://github.com/Debojit-Space/PromptCraft",
+      technologies: ["cloudfare", "openai", "vite", "wrangler"]
+    },
+    {
+      id: "project2",
       title: "Screener Query Assistant",
       description: "This chatbot assistant transforms natural language queries into precise Screener queries, enabling users to easily analyze financial data without needing to master complex syntax.",
       route: "https://screener-spark.lovable.app/",
