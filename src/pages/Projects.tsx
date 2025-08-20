@@ -22,15 +22,23 @@ const Projects = () => {
     {
       id: "project1",
       title: "Prompt Craft",
-      description: "A simple game to help one learn about prompting by asking AI to generate given target output. ",
+      description: "An interactive game designed to teach effective AI prompting techniques, where players craft prompts to generate precise target outputs. ",
       route: "https://promptcraft-1th.pages.dev/",
       githubUrl: "https://github.com/Debojit-Space/PromptCraft",
       technologies: ["cloudfare", "openai", "vite", "wrangler"]
     },
     {
       id: "project2",
+      title: "Personal Assistance Chatbot",
+      description: "An intuitive chatbot assistant that delivers accurate, context-aware responses based on the content of my website.",
+      route: "https:chat.debojitbanik.com",
+      githubUrl: "https://github.com/Debojit-Space/PortfolioChatApp",
+      technologies: ["cloudfare", "llama", "workers ai", "RAG"]
+    },
+    {
+      id: "project3",
       title: "Screener Query Assistant",
-      description: "This chatbot assistant transforms natural language queries into precise Screener queries, enabling users to easily analyze financial data without needing to master complex syntax.",
+      description: "A smart chatbot assistant that converts everyday natural language questions into accurate Screener queries, empowering users to effortlessly explore and analyze financial data without learning intricate syntax.",
       route: "https://screener-spark.lovable.app/",
       githubUrl: "https://github.com/Debojit-Space/screener-spark",
       technologies: ["n8n", "lovable", "openai", "pinecone", "llama index"]

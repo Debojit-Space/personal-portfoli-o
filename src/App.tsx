@@ -12,6 +12,7 @@ import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
 const ScrollHandler = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
 
@@ -32,26 +33,44 @@ const ScrollHandler = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollHandler>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/:slug" element={<BlogCategory />} />
-            <Route path="/:slug/:post" element={<BlogPost />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ScrollHandler>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  useEffect(() => {
+    // Load chatbot embed script
+    const script = document.createElement("script");
+    // ⚡ Use your local Worker for testing OR your deployed Worker URL
+    //script.src = "http://127.0.0.1:8787/embed.js";
+    script.src = "https://chat.debojitbanik.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
 
+    return () => {
+      // Cleanup if component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollHandler>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/:slug" element={<BlogCategory />} />
+              <Route path="/:slug/:post" element={<BlogPost />} />
+              {/* Catch-all route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ScrollHandler>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
