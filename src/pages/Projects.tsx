@@ -31,7 +31,7 @@ const Projects = () => {
       id: "project2",
       title: "Personal Assistance Chatbot",
       description: "An intuitive chatbot assistant that delivers accurate, context-aware responses based on the content of my website.",
-      route: "https:chat.debojitbanik.com",
+      route: "https://chat.debojitbanik.com",
       githubUrl: "https://github.com/Debojit-Space/PortfolioChatApp",
       technologies: ["cloudfare", "llama", "workers ai", "RAG"]
     },
