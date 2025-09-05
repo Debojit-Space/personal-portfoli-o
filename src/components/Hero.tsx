@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section
+    <section id='profile'
       className="relative w-full h-screen flex items-center justify-center overflow-hidden"
       style={{ minHeight: "100vh" }}
     >

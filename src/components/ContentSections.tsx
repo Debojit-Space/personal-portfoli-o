@@ -95,6 +95,12 @@ const ContentSections = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">Science & Space</h3>
               <div className="space-y-4">
+                <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Tech Blogs')} role="link" aria-label="Open Tech Blogs">
+                  <CardContent className="p-6">
+                    <h4 className="font-semibold mb-2">Tech Blogs</h4>
+                    <p className="text-muted-foreground">Covering blogs about technology, AI, and computer science.</p>
+                  </CardContent>
+                </Card>
                 <Card variant="neumorphic" className="cursor-pointer hover:shadow-lg transition-shadow duration-300" onClick={() => handleCardClick('Quantum Physics Breakthroughs')} role="link" aria-label="Open Quantum Physics Breakthroughs">
                   <CardContent className="p-6">
                     <h4 className="font-semibold mb-2">Quantum Physics Breakthroughs</h4>
@@ -107,6 +113,7 @@ const ContentSections = () => {
                     <p className="text-muted-foreground">Covering ISRO missions, SpaceX innovations, and the new space economy.</p>
                   </CardContent>
                 </Card>
+
               </div>
             </div>
 
