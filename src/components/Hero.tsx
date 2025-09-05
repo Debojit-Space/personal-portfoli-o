@@ -58,11 +58,11 @@ const Hero = () => {
         </div>
         {/* Social links (optional) */}
         <div className="mt-8 flex gap-4">
-          <a href="https://github.com/" aria-label="GitHub"><FaGithub size={28} /></a>
-          <a href="https://linkedin.com/" aria-label="LinkedIn"><FaLinkedin size={28} /></a>
-          <a href="https://twitter.com/" aria-label="Twitter"><FaTwitter size={28} /></a>
-          <a href="https://instagram.com/" aria-label="Instagram"><FaInstagram size={28} /></a>
-          <a href="https://substack.com/" aria-label="Substack"><BsSubstack size={28} /></a>
+          <a href="https://github.com/Debojit-Space" aria-label="GitHub"><FaGithub size={28} /></a>
+          <a href="https://www.linkedin.com/in/dkbanik/" aria-label="LinkedIn"><FaLinkedin size={28} /></a>
+          <a href="https://x.com/dkbanik" aria-label="Twitter"><FaTwitter size={28} /></a>
+          <a href="https://instagram.com/dkbanik" aria-label="Instagram"><FaInstagram size={28} /></a>
+          <a href="https://debojit.substack.com/" aria-label="Substack"><BsSubstack size={28} /></a>
         </div>
       </div>
     </section>
