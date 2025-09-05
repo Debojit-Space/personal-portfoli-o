@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { BarChart3, Code, Lightbulb, ExternalLink, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { slugify } from "@/lib/slug";
-import resumePDF from "@/content/resume/Debojit_June25.pdf";
+import resumePDF from "@/content/resume/Resume Sept25.pdf";
 
 const ContentSections = () => {
   const navigate = useNavigate();
