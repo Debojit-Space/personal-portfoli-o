@@ -1,6 +1,6 @@
-Building a Financial Screener Query Assistant with LlamaIndex, Pinecone, and RAG
+# Building a Financial Screener Query Assistant with LlamaIndex, Pinecone, and RAG
 
-### Empowering Intelligent Stock Screening Using AI-Powered Vector Search and Retrieval-Augmented Generation
+Empowering Intelligent Stock Screening Using AI-Powered Vector Search and Retrieval-Augmented Generation
 
 Motivation
 ----------

@@ -1,6 +1,6 @@
 # HBL Engineering Annual Report 25: Deep Dive into India's Niche Defense & Railway Technology Leader
 
-*A comprehensive analysis of HBL Engineering's strategic positioning, business model, and growth prospects based on their latest annual report*
+A comprehensive analysis of HBL Engineering's strategic positioning, business model, and growth prospects based on their latest annual report
 
 ## Introduction
 
